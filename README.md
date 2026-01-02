@@ -1,2 +1,17 @@
-# cp-sheet-cpp
-Competitive Programming &amp; DSA practice in C++ following structured CP sheets (Striver A2Z, CSES, CF). Focus on problem-solving, clean code, and explanations.
+# Competitive Programming Sheet (C++)
+
+Goal:
+- Improve problem solving
+- Prepare for internships & FAANG
+- Target CF 1800+
+
+Sheet Followed:
+- Striver A2Z
+- CSES
+- Codeforces practice
+
+Progress:
+- Arrays ✅
+- Strings ✅
+- DP 🔄
+- Graphs ❌
