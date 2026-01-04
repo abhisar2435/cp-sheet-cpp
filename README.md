@@ -1,17 +1,25 @@
-# Competitive Programming Sheet (C++)
+# 🚀 CP Sheet – C++ (Competitive Programming)
 
-Goal:
-- Improve problem solving
-- Prepare for internships & FAANG
-- Target CF 1800+
+This repository contains my **Competitive Programming and DSA solutions** written in **C++**.  
+I am using this repo to consistently practice problems from standard CP sheets and platforms, while improving **problem-solving, logic building, and coding skills**.
 
-Sheet Followed:
-- Striver A2Z
-- CSES
-- Codeforces practice
+---
 
-Progress:
-- Arrays ✅
-- Strings ✅
-- DP 🔄
-- Graphs ❌
+## 👨‍💻 About Me
+- **Name:** Abhisar Tyagi  
+- **Branch:** B.Tech CSE (AI)  
+- **Language:** C++  
+- **Focus:** Competitive Programming, DSA, Interviews  
+
+---
+
+## 🧠 Platforms & Sheets Covered
+- **Codeforces**
+- **CSES Problem Set**
+- **Striver A2Z DSA Sheet**
+- (More platforms will be added gradually)
+
+---
+
+## 📂 Repository Structure
+
