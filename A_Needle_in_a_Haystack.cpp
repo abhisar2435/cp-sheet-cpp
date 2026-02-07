@@ -8,16 +8,16 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        string s,p;
-        cin>>s>>p;
+        string s,t;
+        cin>>s>>t;
         map<char,int>mp1,mp2;
         for(char ch :s) mp1[ch]++;
-        for(char ch :p) mp2[ch]++;
+        for(char ch :t) mp2[ch]++;
 
         bool  ok=true ;
-        for (auto &p :mp1){
-            char key=p.first;
-            int val=p.second;
+        for (auto &x :mp1){
+            char key=x.first;
+            int val=x.second;
 
             if(!mp2.count(key) || mp2[key]<val) {
                 cout<<"Impossible\n";
@@ -26,12 +26,24 @@ int main() {
             }
             mp2[key]-=val;
             if(mp2[key]==0) mp2.erase(key);
-
         }
         if(ok){
-            cout<<s;
-            for(auto &p: mp2) cout<<string(p.second,p.first);
-            cout<<endl;
+            string p="",ans="";
+            for(auto &x: mp2) {
+                while(x.second>0) {
+                    p+=x.first;
+                    x.second --;
+                }
+
+            }
+            int i=0,j=0;
+            while(i<s.size() && j<p.size()){
+                if(s[i]<=p[j])ans+=s[i++];
+                else ans+= p[j++];
+            }
+            while(i<s.size())ans+=s[i++];
+            while (j<p.size()) ans+=p[j++];
+            cout<<ans<<endl;
         }
 
     }
