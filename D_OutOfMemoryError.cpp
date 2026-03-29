@@ -5,6 +5,7 @@ void solve(){
     ll n,m,h;
     cin>>n>>m>>h;
     vector<ll>a(n);
+    
     vector<ll>ad(n);
     vector<ll>lastv(n,1);
     ll currv=1;
