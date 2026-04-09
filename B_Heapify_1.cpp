@@ -28,12 +28,12 @@ int main(){
         cin>>n;
         vll a(n);
         for(auto &x:a)cin>>x;
-        ll cnt=0;
-
-        fr(i,0,n-1){
-            if(a[i]==a[i+1] || a[i]+a[i+1]==7)cnt++,i++;
+        bool ans=true;
+        fr(i,0,n){
+            if( ((2*(i)+1) <n) && (a[i]>a[2*(i)+1]))swap(a[i],a[2*(i)+1]);
         }
-        cout<<cnt<<endl;
+        fr(i,0,n-1)if(a[i]>a[i+1])ans=false;
+        cout<<(ans==true ?"YES\n":"NO\n");
     }
     return 0;
 }
