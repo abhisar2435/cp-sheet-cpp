@@ -7,21 +7,14 @@ int main() {
     cin>>n;
     vector<ll>a(n);
     for(auto &x:a)cin>>x;
-    sort(a.begin(),a.end());
-    ll lsum=0,rsum=0,diff=0;
-    for(ll i=n-1;i>=1;i-=2){
-        if(diff<=0) {
-            lsum+=a[i];rsum+=a[i-1];
-        }
-        else {
-            lsum+=a[i-1];rsum+=a[i];
-        }
-        diff= lsum-rsum;
 
+    sort(a.rbegin(),a.rend());
+    ll l=0,r=0;
+    for (ll i=0;i<n;i++){
+        if(l<=r) l+=a[i];
+        else r+=a[i];
     }
-    // cout<<abs(lsum-rsum)<<endl;
-    for(ll i :a)cout<<i<<" ";
-
-
+    cout<<abs(l-r)<<endl;
     return 0;
+
 }

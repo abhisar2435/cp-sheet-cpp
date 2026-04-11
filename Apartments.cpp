@@ -13,11 +13,11 @@ int main() {
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
     ll i=0,j=0,cnt=0;
-    while(i<n || j<m){
+    while(i<n && j<m){
         if(a[i]>=b[j]-k && a[i]<=b[j]+k) {i++;j++;cnt++;}
         else if (a[i]<b[j]-k) i++;
-        else if (a[i]>b[j]+k) j++;
+        else j++;
     }
-    cout<<j-1<<endl;
+    cout<<cnt<<endl;
     return 0;
 }
