@@ -26,14 +26,16 @@ int main(){
     while(t--){
         ll n;
         cin>>n;
-        vll a(n);
-        for(auto &x:a)cin>>x;
+        vll a(n+1);
+        fr(i,1,n+1)cin>>a[i];
         bool ans=true;
-        fr(i,0,n){
-            if( ((2*(i)+1) <n) && (a[i]>a[2*(i)+1]))swap(a[i],a[2*(i)+1]);
+        fr(i,1,(n/2)+1){
+            if(a[2*i]<a[i]) {swap(a[i],a[2*i]);}
         }
-        fr(i,0,n-1)if(a[i]>a[i+1])ans=false;
-        cout<<(ans==true ?"YES\n":"NO\n");
+        fr(i,1,n){
+            if(a[i]>a[i+1]){ans=false;break;}
+        }
+        cout<<(ans?"YES":"NO")<<endl;
     }
     return 0;
 }

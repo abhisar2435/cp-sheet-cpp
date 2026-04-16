@@ -10,7 +10,7 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long>
 #define pii pair<int,int>
-#define fr(i,a,b) for(ll i=0;i<n;i++)
+#define fr(i,a,b) for(ll i=a;i<b;i++)
 #define pb push_back
 #define ff first
 #define ss second
@@ -28,20 +28,13 @@ int main(){
         cin>>n;
         vll a(n);
         for(auto &x:a)cin>>x;
-
-        ll cnt=1,x=a[0],y=a[0];
-        for(ll i=1;i<n;i++){
-            if(a[i]>=x+1 && a[i]<= y+1){
-                y=max(y,a[i]);
-            }
-            else {
-                cnt++;
-                x=a[i];
-                y=a[i];
+        ll maxi=0;
+        for(ll i=0;i<n;i++){
+            for(ll j=i+1;j<n;j++){
+                maxi=max(maxi,a[i]^a[j]);
             }
         }
-        cout<<cnt<<endl;
-        
+        cout<<maxi<<endl;
     }
     return 0;
 }

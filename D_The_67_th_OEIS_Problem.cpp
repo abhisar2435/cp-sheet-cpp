@@ -10,12 +10,21 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long>
 #define pii pair<int,int>
-#define fr(i,a,b) for(ll i=0;i<n;i++)
+#define fr(i,a,b) for(ll i=a;i<b;i++)
 #define pb push_back
 #define ff first
 #define ss second
 const int MOD = 1e9+7;
 const int INF = 1e9;
+
+
+bool isprime(ll n){
+    if(n<=1)return false;
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0)return false;
+    }
+    return true ;
+}
 
 int main(){
     ios::sync_with_stdio(0);
@@ -26,21 +35,14 @@ int main(){
     while(t--){
         ll n;
         cin>>n;
-        vll a(n);
-        for(auto &x:a)cin>>x;
-
-        ll cnt=1,x=a[0],y=a[0];
-        for(ll i=1;i<n;i++){
-            if(a[i]>=x+1 && a[i]<= y+1){
-                y=max(y,a[i]);
-            }
-            else {
-                cnt++;
-                x=a[i];
-                y=a[i];
-            }
+        vll a(n+1);
+        ll j=2,k=0;
+        while(k<n+1){
+            if(isprime(j)){a[k]=j;k++;}
+            j++;
         }
-        cout<<cnt<<endl;
+        for(ll i=0;i<n;i++){ cout<<a[i]*a[i+1]<<" "; }
+        cout<<endl;
         
     }
     return 0;
