@@ -1,6 +1,7 @@
 // Problem Link : 
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define all(x) x.begin(), x.end()
 #define pb push_back
@@ -23,23 +24,25 @@ int main(){
     cin >> t;
 
     while(t--){
-        ll n;
-        cin>>n;
-        vll a(n);
-        for(auto &x:a)cin>>x;
+        ll x,y;
+        cin>>x>>y;
+        ll sum=abs(x-y),ans=0;
 
-        ll ans=-1;
-        for(ll i=0;i<n-1;i++){
-            if(abs(a[i]-a[i+1])<=1){ans=0;break;}
+        for(int i=1;i<=sum;i++) if(sum%i==0) ans++;
+
+        if(ans==0)ans=1;
+        if(x>=y){
+            cout<<ans<<endl;
+            for(int i=0;i<y;i++)cout<<-1<<" ";
+            for(int i=0;i<x;i++) cout<<1<<" ";
+            cout<<endl;
         }
-        if(ans==-1){
-        
-        for(ll i=1;i<n-1;i++){
-            if(a[i]>a[i-1] && a[i]>a[i+1])ans=1;
-            if(a[i]<a[i-1] && a[i]<a[i+1])ans=1;
+        else {
+            cout<<ans<<endl;
+            for(int i=0;i<x;i++)cout<<1<<" ";
+            for(int i=0;i<y;i++)cout<<-1<<" ";
+            cout<<endl;
         }
-        }
-        cout<<ans<<endl;
-    } 
+    }
     return 0;
 }

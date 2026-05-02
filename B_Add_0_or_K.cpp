@@ -1,6 +1,7 @@
 // Problem Link : 
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define all(x) x.begin(), x.end()
 #define pb push_back
@@ -23,23 +24,15 @@ int main(){
     cin >> t;
 
     while(t--){
-        ll n;
-        cin>>n;
+        ll n,k;
+        cin>>n>>k;
         vll a(n);
-        for(auto &x:a)cin>>x;
-
-        ll ans=-1;
-        for(ll i=0;i<n-1;i++){
-            if(abs(a[i]-a[i+1])<=1){ans=0;break;}
+        for(ll i=0;i<n;i++){
+            cin>>a[i];
+            a[i]+=(a[i]%(k+1))*k ;
         }
-        if(ans==-1){
-        
-        for(ll i=1;i<n-1;i++){
-            if(a[i]>a[i-1] && a[i]>a[i+1])ans=1;
-            if(a[i]<a[i-1] && a[i]<a[i+1])ans=1;
-        }
-        }
-        cout<<ans<<endl;
-    } 
+        for(ll i:a)cout<<i<<" ";
+        cout<<endl;
+    }
     return 0;
-}
+} 

@@ -7,14 +7,21 @@ int main() {
     cin>>n;
     vector<ll>a(n);
     for(auto &x:a)cin>>x;
+    ll  total=accumulate(a.begin(),a.end(),0LL);
 
-    sort(a.rbegin(),a.rend());
-    ll l=0,r=0;
-    for (ll i=0;i<n;i++){
-        if(l<=r) l+=a[i];
-        else r+=a[i];
+    ll ans=LLONG_MAX;
+    for(int mask=0;mask<(1<<n);mask++){
+        ll sum=0;
+        for(int i=0;i<n;i++){
+            if(mask &(1<<i)){
+                sum+=a[i];
+            }
+        }
+        long long diff=abs(total- 2*(sum));
+        ans=min(ans,diff);
     }
-    cout<<abs(l-r)<<endl;
+    cout<<ans<<endl;
+
     return 0;
 
 }

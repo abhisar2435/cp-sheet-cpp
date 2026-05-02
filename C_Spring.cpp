@@ -1,6 +1,7 @@
 // Problem Link : 
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define all(x) x.begin(), x.end()
 #define pb push_back
@@ -23,23 +24,14 @@ int main(){
     cin >> t;
 
     while(t--){
-        ll n;
-        cin>>n;
-        vll a(n);
-        for(auto &x:a)cin>>x;
-
-        ll ans=-1;
-        for(ll i=0;i<n-1;i++){
-            if(abs(a[i]-a[i+1])<=1){ans=0;break;}
-        }
-        if(ans==-1){
-        
-        for(ll i=1;i<n-1;i++){
-            if(a[i]>a[i-1] && a[i]>a[i+1])ans=1;
-            if(a[i]<a[i-1] && a[i]<a[i+1])ans=1;
-        }
-        }
-        cout<<ans<<endl;
-    } 
+        ll a,b,c,m;
+        cin>>a>>b>>c>>m;
+        ll lab=lcm(a,b), lac=lcm(a,c),lbc=lcm(b,c);
+        ll labc=lcm(lab,c);
+        ll aa= 6*(m/a -m/lab -m/lac +m/labc) +3*(m/lab +m/lac -2*(m/labc)) +2*(m/labc);
+        ll ab= 6*(m/b -m/lab -m/lbc + m/labc) +3*(m/lab +m/lbc -2*(m/labc)) +2*(m/labc);
+        ll ac= 6*(m/c -m/lbc -m/lac +m/labc) +3*(m/lbc +m/lac -2*(m/labc)) +2*(m/labc);
+        cout<<(aa>=0?aa:0)<<" "<<(ab>=0?ab:0)<<" "<<(ac>=0?ac:0)<<endl;
+    }
     return 0;
 }

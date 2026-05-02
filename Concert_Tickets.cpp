@@ -4,11 +4,24 @@ using namespace std;
 int main() {
     long long n,m;
     cin>>n>>m;
-    vector<long long>h(n),t(m);
-    for(long long i=0;i<n;i++) cin>>h[i];
-    for(long long i=0;i<m;i++)cin>>t[i];
+    multiset<long long>h;
+    for(long long i=0;i<n;i++){
+        long long x;
+        cin>>x;
+        h.insert(x);
+    }
+    for(long long i=0;i<m;i++){
+        long long x;
+        cin>>x;
+        auto it=h.upper_bound(x);
+        if(it==h.begin()) cout<<-1<<endl;
+        else {
+            --it;
+            cout<<*it<<endl;
+            h.erase(it);
+        }
 
-    sort(h.begin(),h.end());
+    }
     
     return 0;
 }

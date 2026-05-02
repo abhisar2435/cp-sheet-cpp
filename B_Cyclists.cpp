@@ -24,6 +24,10 @@ int main(){
     cin >> t;
 
     while(t--){
+        ll n,p,k,m;
+        cin>>n>>k>>p>>m;
+        vll  a(n);
+        for(auto &x:a)cin>>x;
         
     }
 
